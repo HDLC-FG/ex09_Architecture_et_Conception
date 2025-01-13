@@ -26,7 +26,7 @@ namespace Infrastructure
         {
             if (!isTestingEnvironnement)
             {
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Ex07_EntityFramework;Trusted_Connection=True;", options => options.MigrationsAssembly("Infrastructure"));
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Ex09_Architecture_et_Conception;Trusted_Connection=True;", options => options.MigrationsAssembly("Infrastructure"));
             }            
         }
 

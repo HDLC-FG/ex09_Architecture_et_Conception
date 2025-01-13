@@ -16,11 +16,11 @@ ApplicationCore/obj/
 Infrastructure/bin/
 Infrastructure/obj/
 
-Web/bin/
-Web/obj/
-
 TestApplicationCore/bin/
 TestApplicationCore/obj/
 
 TestInfrastructure/bin/
 TestInfrastructure/obj/
+
+Web/bin/
+Web/obj/
