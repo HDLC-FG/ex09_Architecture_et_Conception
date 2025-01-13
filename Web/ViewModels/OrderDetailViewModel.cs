@@ -1,0 +1,27 @@
+﻿using ApplicationCore.Models;
+
+namespace Web.ViewModels
+{
+    public class OrderDetailViewModel
+    {
+        public int Id { get; set; }
+        public int OrderId { get; set; }
+        public int ArticleId { get; set; }
+        public ArticleViewModel? Article { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+
+        public OrderDetail ToModel()
+        {
+            return new OrderDetail
+            {
+                Id = Id,
+                OrderId = OrderId,
+                ArticleId = ArticleId,
+                Article = Article?.ToModel(),
+                Quantity = Quantity,
+                UnitPrice = UnitPrice
+            };
+        }
+    }
+}

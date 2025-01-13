@@ -1,0 +1,63 @@
+﻿@using System.Globalization
+@using Web.ViewModels.Shared
+@model PaginationViewModel<CustomerViewModel>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Address)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().OrdersCount)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().OrderTotalAmount)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Items.FirstOrDefault().OrderAverageAmount)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Items)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.OrdersCount)
+				</td>
+				<td>
+					@item.OrderTotalAmount.ToString("C", new CultureInfo("fr-FR"))
+				</td>
+				<td>
+					@item.OrderAverageAmount.ToString("C", new CultureInfo("fr-FR"))
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+@{
+	await Html.RenderPartialAsync("_Pagination", Model.Infos);
+}
